@@ -1,7 +1,7 @@
 const username = process.env.WEB_USERNAME || "admin";
 const password = process.env.WEB_PASSWORD || "password";
 const url = "https://" + process.env.PROJECT_DOMAIN + ".glitch.me";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 30100;
 const express = require("express");
 const app = express();
 var exec = require("child_process").exec;
