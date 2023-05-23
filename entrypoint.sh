@@ -2,7 +2,7 @@
 
 # 设置各变量
 WSPATH=${WSPATH:-'argo'}
-UUID=${UUID:-'1a8c744e-fec8-44d7-8e57-bffef29eea0c'}
+UUID=${UUID:-'8192f723-6b17-4edc-a109-ff21cdec461b'}
 
 # 其他Paas保活
 PAAS1_URL=
@@ -53,7 +53,7 @@ check_file() {
 }
 
 run() {
-    ./cloudflared tunnel --edge-ip-version auto --no-autoupdate --logfile argo.log --loglevel info  2>&1 &
+    ./cloudflared tunnel --edge-ip-version auto --no-autoupdate --logfile argo.log --loglevel info --url http://localhost:80 2>&1 &
     sleep 5
     ARGO_DOMAIN=\$(cat argo.log | grep -o "info.*https://.*trycloudflare.com" | sed "s@.*https://@@g" | tail -n 1)
 }
